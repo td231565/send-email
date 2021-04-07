@@ -4,6 +4,7 @@
   "description": "send email",
   "main": "./main/app.js",
   "scripts": {
+    "start": "node ./main/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
