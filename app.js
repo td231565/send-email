@@ -20,7 +20,7 @@ app.listen(port, () => {
 })
 
 app.get('/mailto', (req, res) => {
-  const {to} = req.query
-  res.send(`will send mail to ${to}`)
-  emailService(to)
+  const {to, name, photo} = req.query
+  res.status(200).send(`will send mail to ${to}`)
+  emailService(to, name, photo)
 })

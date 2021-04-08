@@ -1,13 +1,16 @@
 const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
-module.exports = function (to) {
+module.exports = function (to, name, photo) {
   const msg = {
     to,
     from: 'td231565@gmail.com',
-    subject: '測試 SendGrid 寄信功能',
-    text: `這是一封從 ${process.env.PORT ? 'localhost' : 'Heroku'} 寄出的測試信`,
-    html: `<strong>這是一封從 localhost 寄出的測試信，收件人是 ${to}</strong>`,
+    subject: '綁定 FB 後使用 SendGrid 寄信',
+    // text: `Hello ${name}`,
+    html: `
+      <p>Hello ${name}</p>
+      <img src="${photo}" />
+    `,
   }
   sgMail
     .send(msg)
