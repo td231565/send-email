@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express()
 const port = 3000
-const emailService = require('./email.js')
+const dotenv = require('dotenv')
+dotenv.config()
+const emailService = require('./libs/email.js')
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -12,7 +14,6 @@ app.listen(port, () => {
 })
 
 app.get('/mailto', (req, res) => {
-  console.log(req.query)
   const {to} = req.query
   res.send(`will send mail to ${to}`)
   emailService(to)
