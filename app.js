@@ -1,9 +1,15 @@
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
+const cors = require('cors')
 const dotenv = require('dotenv')
 dotenv.config()
 const emailService = require('./libs/email.js')
+
+const corsOptions = {
+  origin: ['https://td231565.github.io']
+}
+app.use(cors(corsOptions))
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
