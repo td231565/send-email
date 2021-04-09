@@ -12,7 +12,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.redirect('https://td231565.github.io/oauth-login')
 })
 
 app.listen(port, () => {
